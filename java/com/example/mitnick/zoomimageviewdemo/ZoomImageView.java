@@ -33,6 +33,9 @@ public class ZoomImageView extends View
 
     private Paint mPaint;
 
+    private int mLeft = 0;
+    private int mRight = 0;
+
     private int mScreenWidth;
     private int mScreenHeight;
 
@@ -89,7 +92,7 @@ public class ZoomImageView extends View
                 Bitmap tmp = Bitmap.createScaledBitmap(mBitmap, mDstRect.width() + offset,
                         mDstRect.height() + offset, true);
 
-                canvas.drawBitmap(tmp, -offset >> 1, -offset >> 1, mPaint);
+                canvas.drawBitmap(tmp, -offset >> 1 + mLeft, -offset >> 1 + mRight, mPaint);
             }
         }
     }
